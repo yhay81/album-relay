@@ -33,6 +33,14 @@
   ],
   "ratelimits": [
     {
+      "name": "SIGNUP_RATE_LIMITER",
+      "namespace_id": "2003",
+      "simple": {
+        "limit": 3,
+        "period": 60,
+      },
+    },
+    {
       "name": "UNLOCK_RATE_LIMITER",
       "namespace_id": "2001",
       "simple": {

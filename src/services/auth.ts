@@ -5,6 +5,9 @@ import { drizzle } from "drizzle-orm/d1";
 
 import type { Bindings } from "../bindings";
 import { authSchema } from "../db/schema";
+import { verifyTurnstile } from "./turnstile";
+
+const PILOT_CAPACITY = 10;
 
 export function createAuth(env: Bindings, origin: string) {
   const database = drizzle(env.DB, { schema: authSchema });
@@ -24,10 +27,25 @@ export function createAuth(env: Bindings, origin: string) {
     hooks: {
       before: createAuthMiddleware(async (context) => {
         if (context.path !== "/sign-up/email") return;
-        const inviteCode = context.headers?.get("x-pilot-invite") ?? "";
-        if (!env.PILOT_INVITE_CODE || inviteCode !== env.PILOT_INVITE_CODE) {
+
+        const capacity = await env.DB.prepare("SELECT COUNT(*) AS count FROM user").first<{
+          count: number;
+        }>();
+        if ((capacity?.count ?? 0) >= PILOT_CAPACITY) {
           throw new APIError("FORBIDDEN", {
-            message: "現在は招待制です。招待コードを確認してください。",
+            message: "新規登録の受付上限に達しました。",
+          });
+        }
+
+        const inviteCode = context.headers?.get("x-pilot-invite") ?? "";
+        if (env.PILOT_INVITE_CODE && inviteCode === env.PILOT_INVITE_CODE) return;
+
+        const turnstileToken = context.headers?.get("x-turnstile-token") ?? "";
+        const idempotencyKey =
+          context.headers?.get("x-signup-idempotency-key") ?? crypto.randomUUID();
+        if (!(await verifyTurnstile(env, turnstileToken, idempotencyKey))) {
+          throw new APIError("FORBIDDEN", {
+            message: "安全確認を完了してください。",
           });
         }
       }),
