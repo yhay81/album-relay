@@ -16,18 +16,26 @@ export function Layout({
   title = product.name,
 }: LayoutProps) {
   return (
-    <html lang="ja">
+    <html itemscope itemtype="https://schema.org/WebApplication" lang="ja">
       <head>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content={description} name="description" />
+        <meta content={product.name} itemProp="name" />
+        <meta content={description} itemProp="description" />
+        <meta content={product.url} itemProp="url" />
+        <meta content={product.applicationCategory} itemProp="applicationCategory" />
+        <meta content="Any" itemProp="operatingSystem" />
+        <meta content="true" itemProp="isAccessibleForFree" />
         <meta content={description} property="og:description" />
         <meta content={product.ogImage} property="og:image" />
+        <meta content={product.ogImageAlt} property="og:image:alt" />
         <meta content="ja_JP" property="og:locale" />
         <meta content={title} property="og:title" />
         <meta content="website" property="og:type" />
         <meta content={product.url} property="og:url" />
         <meta content="summary_large_image" name="twitter:card" />
+        <meta content={product.ogImage} name="twitter:image" />
         <link href={product.url} rel="canonical" />
         <link href="/styles.css" rel="stylesheet" />
         <title>{title}</title>
