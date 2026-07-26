@@ -1,0 +1,55 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "album-relay",
+  "main": "src/worker.tsx",
+  "compatibility_date": "2026-07-26",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true,
+  },
+  "vars": {
+    "ENVIRONMENT": "production",
+    "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAD-L7QNzyFIbrHah",
+  },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "album-relay",
+      "database_id": "9925c9ab-c9ea-4f9b-a611-2199eddeee7e",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "PHOTOS",
+      "bucket_name": "album-relay-photos",
+    },
+  ],
+  "ratelimits": [
+    {
+      "name": "UNLOCK_RATE_LIMITER",
+      "namespace_id": "2001",
+      "simple": {
+        "limit": 8,
+        "period": 60,
+      },
+    },
+    {
+      "name": "UPLOAD_RATE_LIMITER",
+      "namespace_id": "2002",
+      "simple": {
+        "limit": 30,
+        "period": 60,
+      },
+    },
+  ],
+  "triggers": {
+    "crons": ["0 18 * * *"],
+  },
+}
