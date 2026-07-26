@@ -24,6 +24,7 @@
 ## Routine
 
 - 毎日: Workers 5xx、R2/D1エラー、Turnstile失敗急増、削除cron結果、安全報告。
+- 毎日: `npm run metrics`で登録、初回アルバム、写真追加、共有、閲覧、DL、再利用を集計する。個別利用者や写真情報は出力しない。
 - 毎週: D1 exportの復元試験、R2 object数とD1 photo数の差分、依存監査、費用上限。
 - 誤公開: 新規案件受付を止め、対象albumを停止。access secret流出ならローテーションし、全cookieを失効。
 - 期限削除失敗: albumを非公開のまま再試行し、R2削除確認後にD1を削除。

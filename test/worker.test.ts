@@ -22,6 +22,10 @@ describe("worker", () => {
     expect(html).toContain('<html lang="ja">');
     expect(html).toContain("写真を、そのままみんなへ。");
     expect(html).toContain("原本をまとめて保存");
+    expect(html).toContain('content="summary_large_image" name="twitter:card"');
+    expect(html).toContain(
+      'content="https://album-relay.yusuke8h.workers.dev/og.jpg" property="og:image"',
+    );
     expect(html).not.toContain("PUBLIC EXPERIMENT");
     expect(html).not.toContain("公開パイロット");
   });
