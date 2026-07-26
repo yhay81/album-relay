@@ -62,6 +62,7 @@ export function Layout({
         <footer>
           <span>{product.name}</span>
           <nav aria-label="フッター">
+            <a href="https://tool-shelf.yusuke8h.workers.dev">ほかのツール</a>
             <a href="/privacy">プライバシー</a>
             <a href="/login">ログイン</a>
             <a href="/healthz">稼働状態</a>
