@@ -19,7 +19,9 @@ describe("worker", () => {
     expect(response.headers.get("content-security-policy")).toContain(
       "frame-src https://challenges.cloudflare.com",
     );
-    expect(html).toContain('<html lang="ja">');
+    expect(html).toContain('lang="ja"');
+    expect(html).toContain('itemscope=""');
+    expect(html).toContain('itemtype="https://schema.org/WebApplication"');
     expect(html).toContain("写真を、そのままみんなへ。");
     expect(html).toContain("原本をまとめて保存");
     expect(html).toContain('content="summary_large_image" name="twitter:card"');
