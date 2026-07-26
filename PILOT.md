@@ -1,5 +1,7 @@
 # Pilot runbook
 
+公開集計は[パイロット検証Issue](https://github.com/yhay81/album-relay/issues/1)で管理します。
+
 ## Recruitment
 
 - 月5件以上、撮影会・園行事・小規模イベントの写真を納品する日本のカメラマン10名。

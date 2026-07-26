@@ -6,7 +6,7 @@
 2. [x] D1 IDを`wrangler.jsonc`へ設定し、remote migrationを適用する。
 3. [x] Better Auth、album access、pilot invite、Turnstile secretsを登録する。
 4. [x] Workers.devドメイン専用Turnstile widgetを作り、公開site keyを設定する。
-5. [ ] private vulnerability reportingを有効化する。
+5. [x] private vulnerability reportingを有効化する。
 6. [x] `npm run deploy`後、主要smoke testを本番で行う。
 
 ## Required smoke test

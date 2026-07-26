@@ -3,6 +3,8 @@
 撮影会・園行事・小規模イベントの写真を、受取側の登録なしでQRと合い言葉から閲覧・保存できる期限付き納品アルバムです。30days Album/SUZURIアルバム等を使う日本の小規模カメラマン10名による実案件で、置き換え可能性を検証します。
 
 - 本番: <https://album-relay.yusuke8h.workers.dev>
+- ソース: <https://github.com/yhay81/album-relay>
+- 検証台帳: <https://github.com/yhay81/album-relay/issues/1>
 - 状態: 10名限定の招待制パイロット
 
 ## Product

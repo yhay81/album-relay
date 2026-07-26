@@ -2,7 +2,7 @@
 
 ## Reporting
 
-脆弱性や写真の誤公開を公開Issueへ投稿しないでください。本番リポジトリでprivate vulnerability reportingを有効化し、パイロット参加時には濫用・削除用の非公開連絡経路を案内します。24時間以内に一次確認します。
+脆弱性や写真の誤公開を公開Issueへ投稿しないでください。[Private vulnerability report](https://github.com/yhay81/album-relay/security/advisories/new)を使い、パイロット参加時には濫用・削除用の非公開連絡経路も案内します。24時間以内に一次確認します。
 
 ## Implemented baseline
 
