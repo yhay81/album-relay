@@ -1,11 +1,10 @@
 # Album Relay
 
-撮影会・園行事・小規模イベントの写真を、受取側の登録なしでQRと合い言葉から閲覧・保存できる期限付き納品アルバムです。30days Album/SUZURIアルバム等を使う日本の小規模カメラマン10名による実案件で、置き換え可能性を検証します。
+撮影会・園行事・小規模イベントの写真を、受取側の登録なしでQRと合い言葉から閲覧・保存できる期限付き納品アルバムです。
 
-- 本番: <https://album-relay.yusuke8h.workers.dev>
-- ソース: <https://github.com/yhay81/album-relay>
-- 検証台帳: <https://github.com/yhay81/album-relay/issues/1>
-- 状態: Turnstile付き・先着10名の公開パイロット
+[使う](https://album-relay.yusuke8h.workers.dev) · [実利用募集](https://github.com/yhay81/album-relay/issues/1)
+
+![QRと合い言葉から写真を受け取り、ZIPで保存するAlbum Relayのイメージ](./public/og.jpg)
 
 ## Product
 
@@ -36,6 +35,7 @@ npm run dev
 npm run check
 npm test
 npm run build
+npm run metrics
 npm audit --audit-level=moderate
 ```
 
@@ -49,7 +49,7 @@ npx wrangler r2 bucket create album-relay-photos --location apac
 npx wrangler d1 migrations apply album-relay --remote
 ```
 
-Better Auth、アルバムaccess token、予備の招待コード、Turnstileの秘密値はCloudflare Secretsへ登録します。
+Better Auth、アルバムaccess token、任意の予備招待コード、Turnstileの秘密値はCloudflare Secretsへ登録します。
 
 ```powershell
 npx wrangler secret put BETTER_AUTH_SECRET
