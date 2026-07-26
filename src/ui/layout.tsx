@@ -21,6 +21,14 @@ export function Layout({
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content={description} name="description" />
+        <meta content={description} property="og:description" />
+        <meta content={product.ogImage} property="og:image" />
+        <meta content="ja_JP" property="og:locale" />
+        <meta content={title} property="og:title" />
+        <meta content="website" property="og:type" />
+        <meta content={product.url} property="og:url" />
+        <meta content="summary_large_image" name="twitter:card" />
+        <link href={product.url} rel="canonical" />
         <link href="/styles.css" rel="stylesheet" />
         <title>{title}</title>
         {scripts.map((source) => (
