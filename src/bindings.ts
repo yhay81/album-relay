@@ -11,6 +11,7 @@ export type Bindings = {
   PHOTOS: R2Bucket;
   PILOT_INVITE_CODE: string;
   PUBLIC_TURNSTILE_SITE_KEY?: string;
+  SIGNUP_RATE_LIMITER: RateLimiter;
   TURNSTILE_SECRET_KEY?: string;
   UNLOCK_RATE_LIMITER: RateLimiter;
   UPLOAD_RATE_LIMITER: RateLimiter;

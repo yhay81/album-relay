@@ -5,7 +5,7 @@
 - 本番: <https://album-relay.yusuke8h.workers.dev>
 - ソース: <https://github.com/yhay81/album-relay>
 - 検証台帳: <https://github.com/yhay81/album-relay/issues/1>
-- 状態: 10名限定の招待制パイロット
+- 状態: Turnstile付き・先着10名の公開パイロット
 
 ## Product
 
@@ -49,7 +49,7 @@ npx wrangler r2 bucket create album-relay-photos --location apac
 npx wrangler d1 migrations apply album-relay --remote
 ```
 
-Better Auth、アルバムaccess token、招待、Turnstileの秘密値はCloudflare Secretsへ登録します。
+Better Auth、アルバムaccess token、予備の招待コード、Turnstileの秘密値はCloudflare Secretsへ登録します。
 
 ```powershell
 npx wrangler secret put BETTER_AUTH_SECRET

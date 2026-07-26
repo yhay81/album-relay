@@ -25,54 +25,85 @@ export function HomePage() {
   return (
     <Layout>
       <section class="hero">
-        <p class="eyebrow">PHOTO DELIVERY, WITHOUT THE APP</p>
-        <h1>QRを渡す。合い言葉を入れる。写真が届く。</h1>
-        <p class="lead">
-          撮影会、園行事、小規模イベント向け。受取側の登録やアプリを求めず、原本をまとめて渡せる期限付き写真アルバムです。
-        </p>
-        <div class="actions">
-          <a class="button primary" href="/signup">
-            カメラマンパイロットに参加
-          </a>
-          <a class="button secondary" href="#experiment">
-            判定条件を見る
-          </a>
+        <div class="hero-copy">
+          <p class="eyebrow">ALBUM RELAY</p>
+          <h1>写真を、そのままみんなへ。</h1>
+          <p class="lead">
+            QRと合い言葉を渡すだけ。受け取る人は登録せず、スマホでもPCでも原本を保存できます。
+          </p>
+          <div class="actions">
+            <a class="button primary" href="/signup">
+              アルバムを作る
+            </a>
+            <a class="button secondary" href="/login">
+              ログイン
+            </a>
+          </div>
+        </div>
+        <div class="album-preview" aria-label="アルバムの利用イメージ">
+          <div class="preview-window">
+            <div class="preview-bar">
+              <span class="preview-mark" aria-hidden="true"></span>
+              <span>夏祭り 2026</span>
+              <span class="photo-count">42枚</span>
+            </div>
+            <div class="photo-grid" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="preview-download">
+              <span>
+                <strong>原本をまとめて保存</strong>
+                <small>album-relay.zip</small>
+              </span>
+              <span class="download-pill">ZIP ↓</span>
+            </div>
+          </div>
+          <div class="qr-card" aria-hidden="true">
+            <span class="qr-pattern"></span>
+            <span>
+              <strong>QRで共有</strong>
+              <small>登録・アプリ不要</small>
+            </span>
+          </div>
+          <div class="passphrase-card" aria-hidden="true">
+            <span>合い言葉</span>
+            <strong>なつまつり</strong>
+          </div>
         </div>
       </section>
-      <section class="feature-grid" aria-label="特徴">
+      <section class="relay-flow" aria-label="写真を届ける流れ">
         <article>
-          <span>01</span>
-          <h2>受取側は登録不要</h2>
-          <p>QRと合い言葉だけ。アプリのインストールやSNSアカウントを求めません。</p>
+          <span>1</span>
+          <div>
+            <h2>アルバムを作る</h2>
+            <p>写真をまとめてアップロード。</p>
+          </div>
         </article>
+        <span class="flow-arrow" aria-hidden="true">
+          →
+        </span>
         <article>
-          <span>02</span>
-          <h2>原本も一括で保存</h2>
-          <p>スマホの個別保存と、PC向けストリーミングZIPを同じアルバムから提供します。</p>
+          <span>2</span>
+          <div>
+            <h2>QRで渡す</h2>
+            <p>合い言葉と一緒に案内。</p>
+          </div>
         </article>
+        <span class="flow-arrow" aria-hidden="true">
+          →
+        </span>
         <article>
-          <span>03</span>
-          <h2>期限が来たら消える</h2>
-          <p>写真は非公開R2へ保存し、7・14・30日の期限後に自動削除します。</p>
+          <span>3</span>
+          <div>
+            <h2>原本を保存</h2>
+            <p>1枚ずつでも、ZIPでも。</p>
+          </div>
         </article>
-      </section>
-      <section class="panel" id="experiment">
-        <p class="eyebrow">PUBLIC EXPERIMENT</p>
-        <h2>実案件の完了率で判断します。</h2>
-        <dl class="metrics">
-          <div>
-            <dt>対象</dt>
-            <dd>月5件以上アルバムを作る小規模カメラマン10名</dd>
-          </div>
-          <div>
-            <dt>期限</dt>
-            <dd>{product.experiment.deadline}</dd>
-          </div>
-          <div>
-            <dt>成功</dt>
-            <dd>{product.experiment.success}</dd>
-          </div>
-        </dl>
       </section>
     </Layout>
   );
@@ -81,19 +112,27 @@ export function HomePage() {
 export function AuthPage({
   mode,
   registered = false,
+  turnstileSiteKey,
 }: {
   mode: "login" | "signup";
   registered?: boolean;
+  turnstileSiteKey?: string | undefined;
 }) {
   const signup = mode === "signup";
+  const scripts = [
+    "/app.js",
+    ...(signup && turnstileSiteKey
+      ? ["https://challenges.cloudflare.com/turnstile/v0/api.js"]
+      : []),
+  ];
   return (
-    <Layout scripts={["/app.js"]} title={`${signup ? "参加登録" : "ログイン"} | ${product.name}`}>
+    <Layout scripts={scripts} title={`${signup ? "アカウント作成" : "ログイン"} | ${product.name}`}>
       <section class="auth-card">
-        <p class="eyebrow">{signup ? "PILOT ACCESS" : "WELCOME BACK"}</p>
+        <p class="eyebrow">{signup ? "GET STARTED" : "WELCOME BACK"}</p>
         <h1>{signup ? "納品アルバムを始める" : "管理画面をひらく"}</h1>
         <p>
           {signup
-            ? "現在はカメラマン10名の招待制です。"
+            ? "写真のアップロードと共有に使う管理画面を作ります。"
             : "登録したメールアドレスでログインします。"}
         </p>
         {registered && <Notice tone="success">登録できました。続けてログインしてください。</Notice>}
@@ -121,22 +160,20 @@ export function AuthPage({
           </label>
           {signup && (
             <label>
-              招待コード
-              <input autocomplete="off" name="inviteCode" required type="text" />
+              招待コード（任意）
+              <input autocomplete="off" name="inviteCode" type="text" />
+              <small>個別に案内された方だけ入力してください。</small>
             </label>
+          )}
+          {signup && turnstileSiteKey && (
+            <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
           )}
           <p aria-live="polite" class="notice hidden" data-auth-status role="status"></p>
           <button class="button primary" type="submit">
             {signup ? "登録する" : "ログイン"}
           </button>
         </form>
-        <p>
-          {signup ? (
-            <a href="/login">登録済みの方</a>
-          ) : (
-            <a href="/signup">招待コードをお持ちの方</a>
-          )}
-        </p>
+        <p>{signup ? <a href="/login">登録済みの方</a> : <a href="/signup">アカウントを作成</a>}</p>
       </section>
     </Layout>
   );

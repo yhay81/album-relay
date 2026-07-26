@@ -6,7 +6,7 @@
 
 ## Implemented baseline
 
-- 所有者はBetter Auth、招待コード、12文字以上のパスワード、30日session。
+- 所有者はBetter Auth、12文字以上のパスワード、30日session。公開登録はTurnstileと3回/分のrate limitを通し、D1 triggerで10名に制限する。
 - 合い言葉はランダムsalt付きscrypt（N=16,384、r=16、p=1、64-byte key）。平文を保存しない。
 - 閲覧権限はalbum ID・access version・viewer ID・期限を含むHMAC署名付きHttpOnly/SameSite cookie。
 - 合い言葉変更、公開停止、期限切れ、削除で既存accessを拒否。

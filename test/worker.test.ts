@@ -6,6 +6,7 @@ const bindings = {
   ASSETS: {
     fetch: () => Promise.resolve(new Response("not used")),
   },
+  PUBLIC_TURNSTILE_SITE_KEY: "test-turnstile-site-key",
 };
 
 describe("worker", () => {
@@ -19,8 +20,10 @@ describe("worker", () => {
       "frame-src https://challenges.cloudflare.com",
     );
     expect(html).toContain('<html lang="ja">');
-    expect(html).toContain("QRを渡す。合い言葉を入れる。写真が届く。");
-    expect(html).toContain("実案件の完了率で判断します。");
+    expect(html).toContain("写真を、そのままみんなへ。");
+    expect(html).toContain("原本をまとめて保存");
+    expect(html).not.toContain("PUBLIC EXPERIMENT");
+    expect(html).not.toContain("公開パイロット");
   });
 
   it("renders first-party authentication without inline script", async () => {
@@ -30,6 +33,9 @@ describe("worker", () => {
     expect(response.status).toBe(200);
     expect(html).toContain('data-auth-form="signup"');
     expect(html).toContain('src="/app.js"');
+    expect(html).toContain('class="cf-turnstile"');
+    expect(html).toContain('data-sitekey="test-turnstile-site-key"');
+    expect(html).toContain("招待コード（任意）");
     expect(html).not.toContain("<script>");
   });
 
