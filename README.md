@@ -2,7 +2,7 @@
 
 撮影会・園行事・小規模イベントの写真を、受取側の登録なしでQRと合い言葉から閲覧・保存できる期限付き納品アルバムです。
 
-[使う](https://album-relay.yusuke8h.workers.dev) · [実利用募集](https://github.com/yhay81/album-relay/issues/1)
+[使う](https://album-relay.yhay81.com) · [実利用募集](https://github.com/yhay81/album-relay/issues/1)
 
 ![QRと合い言葉から写真を受け取り、ZIPで保存するAlbum Relayのイメージ](./public/og.jpg)
 

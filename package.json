@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vp dev",
     "metrics": "powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File ops/product-metrics.ps1",
-    "indexnow": "pwsh -NoLogo -NoProfile -File ops/submit-indexnow.ps1 -BaseUrl https://album-relay.yusuke8h.workers.dev",
+    "indexnow": "pwsh -NoLogo -NoProfile -File ops/submit-indexnow.ps1 -BaseUrl https://album-relay.yhay81.com",
     "build": "vp build",
     "preview": "vp preview",
     "check": "vp check",
