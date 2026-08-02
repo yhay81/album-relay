@@ -1,6 +1,5 @@
 ALBUM_ACCESS_SECRET=replace-with-at-least-32-random-characters
 BETTER_AUTH_SECRET=replace-with-at-least-32-random-characters
 ENVIRONMENT=development
-PILOT_INVITE_CODE=replace-with-a-random-pilot-code
 PUBLIC_TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=

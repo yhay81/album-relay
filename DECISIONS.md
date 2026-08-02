@@ -20,8 +20,7 @@
 - IPや氏名を保存せず、access tokenのランダムviewer IDをHMAC匿名化して完了ブラウザ数を数える。
 - Cookie削除や別ブラウザによる重複を明記し、厳密な人物追跡よりプライバシーを優先する。
 
-## 2026-07-26: public pilot registration
+## 2026-08-03: open self-service registration
 
-- 外部SNSの募集開始を待たず検証へ参加できるよう、Turnstile付きの公開登録にする。
-- 公開枠は10名。hookで満員を案内し、D1 triggerでも上限を強制して同時登録競合を閉じる。
-- 既存の招待コードは個別案内と本番smoke用に残すが、定員は迂回させない。
+- 登録人数の上限と招待コードを撤去し、Turnstile付きの公開登録を常時受け付ける。
+- signup rate limit、12文字以上のパスワード、Turnstileによる不正登録対策は維持する。

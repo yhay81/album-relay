@@ -22,7 +22,6 @@ if (authForm instanceof HTMLFormElement) {
           "Content-Type": "application/json",
           ...(signup
             ? {
-                "X-Pilot-Invite": getText("inviteCode"),
                 "X-Signup-Idempotency-Key": signupIdempotencyKey,
                 "X-Turnstile-Token": getText("cf-turnstile-response"),
               }

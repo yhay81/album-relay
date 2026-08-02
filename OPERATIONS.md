@@ -4,14 +4,14 @@
 
 1. [x] APACにD1 `album-relay`と非公開R2 `album-relay-photos`を作成する。
 2. [x] D1 IDを`wrangler.jsonc`へ設定し、remote migrationを適用する。
-3. [x] Better Auth、album access、pilot invite、Turnstile secretsを登録する。
-4. [x] Workers.devドメイン専用Turnstile widgetを作り、公開site keyを設定する。
+3. [x] Better Auth、album access、Turnstile secretsを登録する。
+4. [x] `album-relay.yhay81.com`を許可したTurnstile widgetを作り、公開site keyを設定する。
 5. [x] private vulnerability reportingを有効化する。
 6. [x] `npm run deploy`後、主要smoke testを本番で行う。
 
 ## Required smoke test
 
-- 招待コードの正誤、12文字パスワード、ログイン、ログアウト。
+- Turnstile未完了の登録拒否、12文字パスワード、ログイン、ログアウト。
 - アルバム作成、QR SVG、設定変更、公開停止、合い言葉変更による旧cookie失効。
 - JPEG/PNG/WebP原本とサムネイルのR2保存。SVG、偽MIME、20MB超を拒否。
 - 合い言葉解除、写真一覧、個別原本、ZIP、共同投稿。

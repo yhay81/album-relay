@@ -49,12 +49,11 @@ npx wrangler r2 bucket create album-relay-photos --location apac
 npx wrangler d1 migrations apply album-relay --remote
 ```
 
-Better Auth、アルバムaccess token、任意の予備招待コード、Turnstileの秘密値はCloudflare Secretsへ登録します。
+Better Auth、アルバムaccess token、Turnstileの秘密値はCloudflare Secretsへ登録します。
 
 ```powershell
 npx wrangler secret put BETTER_AUTH_SECRET
 npx wrangler secret put ALBUM_ACCESS_SECRET
-npx wrangler secret put PILOT_INVITE_CODE
 npx wrangler secret put TURNSTILE_SECRET_KEY
 ```
 
