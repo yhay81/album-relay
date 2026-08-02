@@ -9,7 +9,6 @@ export type Bindings = {
   DB: D1Database;
   ENVIRONMENT: "development" | "preview" | "production";
   PHOTOS: R2Bucket;
-  PILOT_INVITE_CODE: string;
   PUBLIC_TURNSTILE_SITE_KEY?: string;
   SIGNUP_RATE_LIMITER: RateLimiter;
   TURNSTILE_SECRET_KEY?: string;
