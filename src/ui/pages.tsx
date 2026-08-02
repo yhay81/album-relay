@@ -23,7 +23,7 @@ function Notice({ children, tone = "error" }: NoticeProps) {
 
 export function HomePage() {
   return (
-    <Layout>
+    <Layout title="写真をQRで共有・原本保存 | Album Relay">
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">ALBUM RELAY</p>

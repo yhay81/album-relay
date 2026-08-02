@@ -22,6 +22,7 @@ describe("worker", () => {
     expect(html).toContain('lang="ja"');
     expect(html).toContain('itemscope=""');
     expect(html).toContain('itemtype="https://schema.org/WebApplication"');
+    expect(html).toContain("<title>写真をQRで共有・原本保存 | Album Relay</title>");
     expect(html).toContain("写真を、そのままみんなへ。");
     expect(html).toContain("原本をまとめて保存");
     expect(html).toContain('content="summary_large_image" name="twitter:card"');
