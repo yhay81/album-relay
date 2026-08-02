@@ -39,7 +39,7 @@ describe("worker", () => {
     expect(html).toContain('src="/app.js"');
     expect(html).toContain('class="cf-turnstile"');
     expect(html).toContain('data-sitekey="test-turnstile-site-key"');
-    expect(html).toContain("招待コード（任意）");
+    expect(html).not.toContain("招待コード");
     expect(html).not.toContain("<script>");
   });
 

@@ -115,10 +115,14 @@ footer nav {
 .hero {
   display: grid;
   min-height: min(42rem, calc(100vh - 4.5rem));
-  padding-block: clamp(3rem, 8vw, 6rem);
-  grid-template-columns: minmax(0, 0.9fr) minmax(25rem, 1.1fr);
-  gap: clamp(2.5rem, 7vw, 7rem);
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+  grid-template-columns: minmax(18rem, 0.72fr) minmax(27rem, 1.28fr);
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
+}
+
+.hero-copy {
+  max-width: 30rem;
 }
 
 .eyebrow {
@@ -137,7 +141,7 @@ h3 {
 h1 {
   max-width: 42rem;
   margin-bottom: 0;
-  font-size: clamp(2.25rem, 4.5vw, 4.5rem);
+  font-size: clamp(1.8rem, 3vw, 3.1rem);
 }
 
 h2 {
@@ -149,9 +153,9 @@ p {
 }
 
 .lead {
-  margin-block: 1.75rem 0;
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
-  line-height: 1.85;
+  margin-block: 1.25rem 0;
+  font-size: clamp(1rem, 1.4vw, 1.16rem);
+  line-height: 1.75;
   color: #4e5b57;
 }
 

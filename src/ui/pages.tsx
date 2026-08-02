@@ -158,13 +158,6 @@ export function AuthPage({
             />
             {signup && <small>12文字以上。ほかのサービスと同じものは使わないでください。</small>}
           </label>
-          {signup && (
-            <label>
-              招待コード（任意）
-              <input autocomplete="off" name="inviteCode" type="text" />
-              <small>個別に案内された方だけ入力してください。</small>
-            </label>
-          )}
           {signup && turnstileSiteKey && (
             <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
           )}
