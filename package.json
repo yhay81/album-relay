@@ -21,7 +21,7 @@
     "better-auth": "^1.6.25",
     "client-zip": "^2.5.0",
     "drizzle-orm": "^0.45.2",
-    "hono": "4.12.32",
+    "hono": "4.12.34",
     "uqr": "^0.1.3"
   },
   "devDependencies": {
